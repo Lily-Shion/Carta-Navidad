@@ -1,0 +1,430 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+@font-face {
+  font-family: 'Bubbler One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bubbler One'), local('BubblerOne'), url(https://fonts.gstatic.com/s/bubblerone/v4/tiAxK_A8SViEcY0M590QMCYE0-AqJ3nfInTTiDXDjU4.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bubbler One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bubbler One'), local('BubblerOne'), url(https://fonts.gstatic.com/s/bubblerone/v4/tiAxK_A8SViEcY0M590QMI4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}  
+
+body {
+  background-color: #17324f;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 200px;
+  padding-right: 50px;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+
+pre {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ff0a;
+}
+
+pre span:first-child {
+  color: rgb(255, 255, 0);
+}
+
+pre span:last-child {
+  color: #795548;
+}
+
+.snow {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+}
+
+.snow-floor {
+  width: 100%;
+  height: 3%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.title {
+  color: #fff;
+  font-family: "Lobster";
+  font-weight: lighter;
+}
+
+@keyframes fall {
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 100vh;
+  }
+}
+
+
+
+/* Carta navideña */
+
+/* body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+input#open {
+  display: none;
+}
+
+.christmas-card {
+  position: relative;
+  width: 450px;
+  height: 500px;
+  transform-style: preserve-3d;
+	transform: perspective(2500px);
+  transition: 3s;
+}
+
+.card-front {
+  position: relative;
+  background-color: #d11515;
+  width: 450px;
+  height:500px;
+  overflow: hidden;
+  transform-origin: left;
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+  border-radius: 0px 10px 10px 0px;
+  transition: .3s;
+}
+
+.card-front:before {
+  content:"";
+  position: absolute;
+  width: 430px;
+  height: 480px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  top: 10px;
+  left: 10px;
+}
+
+.christmas-tree {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  /* border-right: 50px solid transparent; */
+  /* border-left: 50px solid transparent; */
+  /* border-bottom: 160px solid #034247; */
+  top: -60px;
+  left: -10px;
+}
+
+.rodolfo{
+  position: absolute;
+  width: 60px;
+  heigth: 60px;
+  top: 250px;
+  left: 150px;
+}
+
+.rodolfo img{
+  display: absolute;
+  width: 150px;
+  heigth: 150px;
+}
+
+
+/* .christmas-tree:after {
+  content:"";
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  background-color: #c47f1a;
+  left:-50px;
+  top:140px;
+} */
+
+.christmas-tree:before {
+  content:"";
+  position: absolute;
+  /* background-color: #a86d16; */
+  /* width:50px; */
+  /* height: 25px; */
+  /* top:130px; */
+  /* left:20px; */
+  /* box-shadow: -90px 0 #a86d16; */
+}
+
+.card-inside {
+  position: absolute;
+  background-color: #d11515;
+  width: 450px;
+  height: 500px;
+  z-index:-1;
+  left:0;
+  top:0;
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2);
+  border-radius: 0px 10px 10px 0px;
+}
+
+.card-inside:before {
+  content:"";
+  position: absolute;
+  width: 430px;
+  height: 480px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  top: 10px;
+  left: 10px;
+}
+
+.open {
+  position: absolute;
+  width: 450px;
+  height: 500px;
+  left:0;
+  top:0;
+  background-color: transparent;
+  z-index:6;
+  cursor: pointer;
+}
+
+#open:checked ~ .card-front {
+  transform: rotateY(-155deg);
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+}
+
+#open:checked ~ .card-front:before {
+  z-index:5;
+}
+
+
+.text {
+  position: absolute;
+  color: rgb(131, 24, 24);
+  font-family: brush script mt;
+  top:90px;
+  width:400px;
+  padding-left: 20px;
+  text-align: center;
+  font-size:60px;
+}
+
+.text1 {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  font-family: 'Bubbler One';
+  top:450px;
+  width:400px;
+  padding-left: 20px;
+  text-align: center;
+  font-size:20px;
+}
+
+
+
+.title {
+  position: absolute;
+  color: #000000;
+  font-size:30px;
+  font-family: 'Bubbler One';
+  line-height: 100%;
+  text-align: left;
+  top: 50px;
+  left: 30px;
+  width:300px;
+}
+
+.paraph {
+  position: absolute;
+  color: #000000;
+  font-size: 20px;
+  font-family: 'Bubbler One';
+  line-height: 90%;
+  text-align: left;
+  top: 100px;
+  left: 30px;
+  width: 400px;
+}
+
+.text2 {
+  position: absolute;
+  color: rgb(131, 24, 24);
+  font-family: brush script mt;
+  top:235px;
+  width:400px;
+  padding-left: 20px;
+  text-align: center;
+  font-size:60px;
+}
+
+
+.wishes {
+  position: absolute;
+  /* width: px; */
+  text-align: center;
+  font-family: brush script mt;
+  line-height:15px;
+  font-size: 20px;
+  color: #333;
+  height: 500px;
+  top: 51%;
+  left: 45px;
+}
+
+.gift {
+  position: absolute;
+  border: 3px solid #333;
+  width:30px;
+  height: 30px;
+  top: 235px;
+  left:83px;
+}
+
+.gift:before, .gift:after {
+  content:"";
+  position: absolute;
+  background-color: #333;
+}
+
+.gift:before {
+  width:30px;
+  height:3px;
+  top:14px;
+}
+
+.gift:after {
+  height:30px;
+  width:3px;
+  left: 14px;
+}
+
+.bow {
+  position: absolute;
+}
+
+.bow:before, .bow:after {
+  content:"";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 3px solid #333;
+  border-radius:50%;
+  top:-14px;
+}
+
+.bow:before {
+  transform: skew(20deg, 10deg);
+  left:2px;
+}
+
+.bow:after {
+  transform: skew(-20deg,-10deg);
+  left:15px;
+}
+
+/* arbolito */
+svg {
+  width: 100% ;
+  height: 90%;
+  /* z-index: 1000000; */
+  /* visibility: hidden; */
+}
+
+.sperkle {
+  
+}
+
+.container-body{
+  display: flex;
+}
+
+aside{
+  padding: 75px 30px;
+}
+
+.container {
+  display: flex;
+}
+
+.ball {
+  width: 50px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
+  animation: spin 4s linear infinite;
+}
+
+.ball1 {
+  width: 640px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 5px;
+  position: relative;
+  left: -135px;
+  animation: spin 4s linear infinite;
+}
+
+.ball2 {
+  width: 600px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
+  animation: spin 4s linear infinite;
+}
+
+
+
+img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+}
+
+/* Add more styles for additional balls or customize existing styles */
+/* @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} */
+
+#modal{
+  position:absolute;
+  text-align: center;
+  width:80vw;
+  height:80vh;
+  left:10vw;
+  top:10vh;
+  background:rgba(0,0,0,0.1);  
+}    
+#close{
+  color:#FFFFFF;
+  position:absolute;
+  top:10px;
+  right:10px;
+}
